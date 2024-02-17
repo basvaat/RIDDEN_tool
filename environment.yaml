@@ -1,0 +1,9 @@
+name: ridden_py39
+channels:
+  - conda-forge
+dependencies:
+  - python=3.9
+  - pandas=1.4.2
+  - numpy=1.22.3
+
+
