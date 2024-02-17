@@ -16,7 +16,7 @@ To set up your environment using Conda:
 
 ## Installation
 ```sh
-pip install -e .
+pip install .
 ```    
 ## Verify Installation
 This command will display information about the installed ridden package
@@ -27,11 +27,11 @@ pip show ridden
 ## Usage
 ### Example
 ```sh
-ridden_tool input_file.csv -n 100 -c 100 -o output_file
+ridden-tool input_file.csv -n 100 -c 100 -o output_file
 ```
 
 ```sh
-$ ridden_tool --help
+$ ridden-tool --help
 ```
 
 ```plaintext
