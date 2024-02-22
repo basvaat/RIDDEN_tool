@@ -1,4 +1,15 @@
-RIDDEN
+# RIDDEN: Data-driven inference of receptor activity for cell-cell communication studies
+Using RIDDEN command-line tool receptor activities can be inferred from bulk and single-cell transcriptomic data.
+This tool uniquely infers receptor activity based on the expression of receptor-regulated genes, rather than the traditional approach of focusing on the expression levels of ligands and receptors. 
+
+
+The figure illustrates the construction of the model (A) and the method for inferring receptor activities (B).
+![RIDDEN](figures/RIDDEN_model_fig1.jpeg)
+The figure was created with BioRender.com.
+
+The RIDDEN model matrix is available at `ridden_model/ridden_model_matrix.csv`.
+
+To install the RIDDEN tool follow the instructions:
 
 ## Requirements
 Before using the RIDDEN CLI, ensure that the following Python packages are installed in your environment:
