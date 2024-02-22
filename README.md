@@ -1,4 +1,4 @@
-# RIDDEN: Data-driven inference of receptor activity for cell-cell communication studies
+# RIDDEN: Data-driven inference of receptor activity from transcriptomic data
 Using RIDDEN command-line tool receptor activities can be inferred from bulk and single-cell transcriptomic data.
 This tool uniquely infers receptor activity based on the expression of receptor-regulated genes, rather than the traditional approach of focusing on the expression levels of ligands and receptors. 
 
