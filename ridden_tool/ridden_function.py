@@ -2,6 +2,13 @@
 from pandas import DataFrame, concat, read_csv
 import random
 from numpy import array, mean, std
+import os
+
+file_path = os.path.dirname(os.path.abspath(__file__))
+ridden_model_matrix = f'{file_path}/../ridden_model/ridden_model_matrix.csv'
+
+def get_output_file_name(output_name: str)->str:
+    return output_name if output_name.endswith('.csv') else output_name+'.csv'
 
 def permute(genename_list:list, seed:int):
     random.seed(seed)
@@ -33,7 +40,7 @@ def infer_receptor_activity(input_data_filename:str, number_of_permutation: int,
     print('Read in input_data')
     input_data = read_csv(input_data_filename, index_col = 0)
     input_data = input_data.astype(float)
-    lincs_model = read_csv('ridden_model/ridden_model_matrix.csv', index_col = 0)
+    lincs_model = read_csv(ridden_model_matrix, index_col = 0)
     lincs_model = lincs_model.T
     print('Start calculation')
     # permute genenames and store as list of indexes
@@ -82,5 +89,7 @@ def infer_receptor_activity(input_data_filename:str, number_of_permutation: int,
     zscore_receptor_activities_sample_receptor= concat(zscore_receptor_activities, axis=0)
     zscore_receptor_activities_sample_receptor.index = zscore_receptor_activities_sample_receptor.index.get_level_values(1)
 
-    zscore_receptor_activities_sample_receptor.to_csv(output_name+'.csv')
-    print(f'Result is saved to {output_name}')
+    output_file_name = get_output_file_name(output_name)
+
+    zscore_receptor_activities_sample_receptor.to_csv(output_file_name)
+    print(f'Result is saved to {output_file_name}')

@@ -2,3 +2,7 @@ __pycache__
 data/
 build/
 .DS_Store
+venv
+input.csv
+output.csv
+ridden.egg-info
