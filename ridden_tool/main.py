@@ -9,7 +9,7 @@ def cli():
     parser.add_argument("-p", "--number-of-permutation", type=int, default=100, help="Number of permutations (default: 100)")
     parser.add_argument("-c", "--chunk-size", type=int, default=100, help="Size of data processing chunks (default: 100)")
     parser.add_argument("-o", "--output-name", default="output", help="Name for the output file (default: output). The output file format is csv.")
-
+    parser.add_argument("--debug", action="store_true", help="Print debug information")
     args = parser.parse_args()
 
     perm_message = "default 100" if args.number_of_permutation == 100 else str(args.number_of_permutation)
@@ -20,8 +20,10 @@ def cli():
 
     try:
         infer_receptor_activity(args.input, args.number_of_permutation, args.chunk_size, args.output_name)
-    except:
+    except Exception as e:
         sys.stderr.write('Inferring receptor activities failed. For troubleshooting, please get in touch with the authors.\n')
+        if args.debug:
+            sys.stderr.write(f'Error: {e}\n')
         sys.exit(1)
 
 if __name__ == "__main__":

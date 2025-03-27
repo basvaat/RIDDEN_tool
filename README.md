@@ -38,7 +38,7 @@ pip show ridden
 ## Usage
 ### Example
 ```sh
-ridden-tool input_file.csv -n 100 -c 100 -o output_file
+ridden-tool input_file.csv -p 100 -c 100 -o output_file
 ```
 
 ```sh
