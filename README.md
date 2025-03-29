@@ -36,6 +36,8 @@ pip show ridden
 ```
 
 ## Usage
+Input format: The input file should be a log-transformed or normalized gene expression dataset. The format must be CSV, containing gene symbols as columns and samples or cells as rows.
+
 ### Example
 ```sh
 ridden-tool input_file.csv -p 100 -c 100 -o output_file
