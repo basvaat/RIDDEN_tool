@@ -40,8 +40,12 @@ def infer_receptor_activity(input_data_filename:str, number_of_permutation: int,
     print('Read in input_data')
     input_data = read_csv(input_data_filename, index_col = 0)
     input_data = input_data.astype(float)
+    
     lincs_model = read_csv(ridden_model_matrix, index_col = 0)
     lincs_model = lincs_model.T
+    
+    input_data = input_data[input_data.columns.intersection(lincs_model.index)]
+
     print('Start calculation')
     # permute genenames and store as list of indexes
     permuted_genename_lists = permute_genenames(input_data,number_of_permutation)
